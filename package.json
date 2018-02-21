@@ -1,0 +1,11 @@
+{
+  "name": "starter-theme",
+  "version": "1.0.0",
+  "description": "Promotion Tribe's WP Starter Theme",
+  "main": "index.js",
+  "author": "Promotion Tribe",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^3.11.0"
+  }
+}
