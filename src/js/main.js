@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import print from './single';
 
 function component() {
   var element = document.createElement('div');

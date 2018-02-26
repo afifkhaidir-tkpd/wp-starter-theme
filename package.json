@@ -9,6 +9,7 @@
     "start": "webpack"
   },
   "dependencies": {
+    "html-webpack-plugin": "^2.30.1",
     "lodash": "^4.17.5",
     "webpack": "^3.11.0"
   }
