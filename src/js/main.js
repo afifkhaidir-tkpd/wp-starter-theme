@@ -3,10 +3,14 @@ import print from './single';
 
 function component() {
   var element = document.createElement('div');
+  var btn = document.createElement('button');
 
-  // Lodash, currently included via a script, is required for this line to work
-  // Lodash, now imported by this script
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  
+  btn.innerHTML = 'Primary Button';
+  btn.onclick = print;
+
+  element.appendChild(btn);
 
   return element;
 }

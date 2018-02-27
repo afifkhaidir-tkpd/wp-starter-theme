@@ -14,6 +14,7 @@ function tkp_theme_scripts() {
   wp_enqueue_style('css-style', get_template_directory_uri().'/dist/css/style.min.css');
   
   wp_enqueue_script('js-main', get_template_directory_uri().'/dist/js/main.min.js', [], NULL, true);
+  // wp_enqueue_script('js-single', get_template_directory_uri().'/dist/js/single.min.js', [], NULL, false);
 }
 add_action('wp_enqueue_scripts', 'tkp_theme_scripts');
 ?>
