@@ -6,12 +6,15 @@
   "author": "Promotion Tribe",
   "license": "MIT",
   "scripts": {
-    "start": "webpack"
+    "start": "webpack --progress",
+    "build": "webpack --progress -p"
   },
   "dependencies": {
     "clean-webpack-plugin": "^0.1.18",
     "html-webpack-plugin": "^2.30.1",
     "lodash": "^4.17.5",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "webpack-manifest-plugin": "^1.3.2",
+    "yargs": "^11.0.0"
   }
 }
