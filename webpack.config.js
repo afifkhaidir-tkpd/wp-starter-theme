@@ -4,13 +4,7 @@ const argv = require('yargs').argv;
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackManifestPlugin = require('webpack-manifest-plugin');
 
-const isProduction = !!((process.env.NODE_ENV && process.env.NODE_ENV.production) || argv.production);
-
-console.log(isProduction);
-
-if(process.env.NODE_ENV === undefined) {
-  process.env.NODE_ENV = isProduction ? 'production' : 'development';
-}
+const isProduction = !!((argv.env && argv.env.production) || argv.p);
 
 module.exports = {
   entry: {
@@ -18,6 +12,30 @@ module.exports = {
     single: './src/js/single.js'
   },
   devtool: !isProduction ? 'inline-source-map' : undefined,
+  devServer: {
+    contentBase: './dist'
+  },
+  module: {
+    rules: [
+      {
+        test: /.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }
+      },
+      {
+        test: /.css$/,
+        use: [
+          {loader: 'style-loader'},
+          {loader: 'css-loader'}
+        ]
+      }
+    ]
+  },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new WebpackManifestPlugin()
