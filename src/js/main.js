@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { printHello, printWelcome, printAsik } from './single';
 
-import '../sass/style.css';
+import '../sass/style.scss';
 
 function component() {
   var element = document.createElement('div');
@@ -9,8 +9,11 @@ function component() {
 
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
   
-  btn.innerHTML = 'Primary Button';
+  btn.innerHTML = printWelcome('Button');
   btn.classList.add('btn');
+  btn.onclick = () => {
+    printHello('Button');
+  }
 
   element.appendChild(btn);
 
