@@ -1,5 +1,6 @@
 const path = require('path');
 const argv = require('yargs').argv;
+const webpack = require('webpack');
 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackManifestPlugin = require('webpack-manifest-plugin');
@@ -50,7 +51,11 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new WebpackManifestPlugin()
+    new WebpackManifestPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "commons",
+      filename: "commons.min.js"
+    })
   ],
   output: {
     filename: '[name].min.js',
